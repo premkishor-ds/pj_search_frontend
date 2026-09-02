@@ -334,7 +334,7 @@ export default function Home() {
     fetchSuggestions(null);
   };
 
-  const copyToClipboard = (text: string) => navigator.clipboard.writeText(text);
+
 
   /* ─────────────────────────────────────────────────────────
      Render
@@ -483,17 +483,7 @@ export default function Home() {
                     <span className="w-2 h-2 rounded-full bg-green-600 animate-pulse" />
                     <span className="text-[10px] font-bold tracking-wider text-slate-400 uppercase">Papa Johns Assistant</span>
                   </div>
-                  {msg.answer && (
-                    <button
-                      onClick={() => copyToClipboard(msg.answer)}
-                      className="text-slate-400 hover:text-slate-600 p-1 hover:bg-slate-100 rounded-lg transition-colors cursor-pointer"
-                      title="Copy response"
-                    >
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2" />
-                      </svg>
-                    </button>
-                  )}
+
                 </div>
 
                 {/* Answer body */}
