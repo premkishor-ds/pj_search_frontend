@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-navy: #1E293B;
+  --color-brand-blue: #00684A; /* Papa Johns Green mapped to blue vars used in tailwind if any */
+  --color-brand-yellow: #EAB308;
+  --color-brand-red: #E1132C; /* Papa Johns Red */
+  --color-surface-gray: #F8FAFC;
+  --color-border-light: #E2E8F0;
+}
+
+:root {
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+}
+
+body {
+  color: var(--foreground);
+  background: radial-gradient(circle at top right, #EEF2F6, #F8FAFC);
+  font-family: var(--font-inter), -apple-system, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Markdown styling inside answers */
+.expert-answer {
+  color: #334155;
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+.expert-answer p {
+  margin-bottom: 1rem;
+}
+
+.expert-answer strong {
+  color: #1E293B;
+  font-weight: 600;
+}
+
+.expert-answer ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.expert-answer ol {
+  list-style-type: decimal;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.expert-answer li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+.expert-answer h1, .expert-answer h2, .expert-answer h3 {
+  font-family: var(--font-outfit), sans-serif;
+  color: #1E293B;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.expert-answer h3 {
+  font-size: 1.2rem;
+}
+
+.expert-answer code {
+  background: #F1F5F9;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+  font-family: monospace;
+}
+
+/* Custom shadow utilities */
+.premium-shadow {
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04), 
+              0 1px 3px 0 rgba(15, 23, 42, 0.02);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.pulse-bg {
+  animation: pulse-glow 3s infinite ease-in-out;
+}
