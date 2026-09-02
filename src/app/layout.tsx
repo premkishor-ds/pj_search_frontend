@@ -8,6 +8,9 @@ const outfit = Outfit({ subsets: ["latin"], variable: '--font-outfit' });
 export const metadata: Metadata = {
   title: "Papa Jones US | IA Search",
   description: "Recherche intelligente pour vos services de vitrage automobile",
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
