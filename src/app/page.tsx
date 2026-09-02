@@ -103,6 +103,26 @@ interface Message {
   done: boolean;
 }
 
+const getSourceTitle = (s: Source) => {
+  const content = s.content || "";
+  if (content.includes("Menu Item")) {
+    const match = content.match(/Customize\s+(.*?)\s+tags/i) || content.match(/Category:.*?\s+(.*?)\s+tags/i) || content.match(/Category:\s*(.*?)\s/i);
+    if (match) return match[1].trim();
+    return "Menu Item";
+  }
+  if (content.includes("Store Name:")) {
+    const match = content.match(/Store Name:\s*(.*?)\s+Address:/i);
+    if (match && match[1].trim() !== "ON" && match[1].trim().length > 1) {
+      return match[1].trim();
+    }
+    return "Store Location";
+  }
+  if (s.metadata?.original_title && s.metadata.original_title !== "ON") {
+    return s.metadata.original_title;
+  }
+  return "Source Document";
+};
+
 /* ─────────────────────────────────────────────────────────────
    Component
 ───────────────────────────────────────────────────────────── */
@@ -522,7 +542,7 @@ export default function Home() {
                         .map((s, si) => (
                           <div key={si} className="bg-slate-50 p-3 rounded-xl border border-slate-100">
                             <p className="text-[10px] text-green-700 font-bold uppercase mb-1 truncate">
-                              {s.metadata.original_title}
+                              {getSourceTitle(s)}
                             </p>
                             <p className="text-[10px] text-slate-500 line-clamp-2 leading-relaxed">
                               {s.content.slice(0, 120)}…
