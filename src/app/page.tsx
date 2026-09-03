@@ -142,7 +142,7 @@ export default function Home() {
   const exampleQueries = [
     "What is the price of the Margherita pizza?",
     "Do you have any chicken pizzas?",
-    "Show me vegetarian pizzas under ₹700",
+    "Show me vegetarian pizzas under £700",
     "What comes in the Sakkath Veg Combo?",
   ];
   const [placeholder, setPlaceholder] = useState("");
